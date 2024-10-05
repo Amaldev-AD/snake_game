@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import snakeimg from '../assets/snake-game-ai-gen.png'
 
-const GamePieces = ({score,setScore,gameOver, onGameOver,}) => {
+const GamePieces = ({score,setScore, onGameOver}) => {
   const canvaRef = useRef();
   const SNAKE_SPEED = 10;
   const [apple, setApple] = useState({ x: 180, y: 100 });
@@ -81,10 +81,10 @@ const GamePieces = ({score,setScore,gameOver, onGameOver,}) => {
     } 
 
     const handleWallCollision = ( snakeHead) => {
-      if(snakeHead.x+SNAKE_SPEED > canvas.width || snakeHead.x + SNAKE_SPEED < 0){
+      if(snakeHead.x + SNAKE_SPEED > canvas.width || snakeHead.x < 0){
         onGameOver("wall")
       }
-      if(snakeHead.y+SNAKE_SPEED >canvas.height || snakeHead.y < 0){
+      if(snakeHead.y+SNAKE_SPEED >=canvas.height || snakeHead.y  < 0){
         onGameOver("wall")
       }
     }

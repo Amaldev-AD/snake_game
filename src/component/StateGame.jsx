@@ -60,13 +60,7 @@ const StateGame = () => {
                   <div className="message">
                   <h1>Game Over</h1>
                   <img src={snakeimg} alt="" />
-                  <p className="p1">
-                    
-                    {collision === "wall"
-                      ? "you hit the wall"
-                      : "you ate yourself"}
-                    !
-                  </p>
+                  <p className="p1">{collision === "wall"?"you hit the wall":"you ate yourself"}</p>
                   <p className="p2">Please press enter to reset the game</p>
                   </div>
                 </div>
@@ -78,9 +72,8 @@ const StateGame = () => {
       {!gameOver && (
         <GamePieces
           score={score}
-          setScore={setScore}
-          gameOver={gameOver}
-          onGameOver={(type) => handleGameOver()}
+          setScore={setScore}        
+          onGameOver={(type) => handleGameOver(type)}
         />
       )}
     </div>
